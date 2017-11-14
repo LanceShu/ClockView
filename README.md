@@ -1,2 +1,2 @@
 # ClockView
-一个时钟控件
+一个Android的时钟控件
