@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ClockView">
+
+        <attr name="borderColor" format="color"/>
+        <attr name="borderSize" format="integer"/>
+        <attr name="secondColor" format="color"/>
+        <attr name="secondSize" format="integer"/>
+        <attr name="minColor" format="color"/>
+        <attr name="minSize" format="integer"/>
+        <attr name="hourColor" format="color"/>
+        <attr name="hourSize" format="integer"/>
+        <attr name="lineColor" format="color"/>
+
+        <attr name="borderType">
+            <enum name="stroke" value="0"/>
+            <enum name="fill" value="1"/>
+        </attr>
+
+    </declare-styleable>
+
+</resources>
