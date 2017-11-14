@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.lance.clockview.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.example.lance.clockview.ClockView
+        android:id="@+id/clockView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        app:borderType="fill"
+        app:lineColor="#fff"
+        app:minColor="#fff"
+        app:hourColor="#fff"/>
 
-</android.support.constraint.ConstraintLayout>
+        <!--边框颜色-->
+        app:borderColor="#b31111"
+        <!--边框样式（stroke：边框   fill：表盘覆盖）-->
+        app:borderType="stroke"
+        <!--边框大小-->
+        app:borderSize="6"
+        <!--秒针颜色-->
+        app:secondColor="#b31111"
+        <!--秒针大小-->
+        app:secondSize="2"
+        <!--分针大小-->
+        app:minSize="5"
+        <!--分针颜色-->
+        app:minColor="#000"
+        <!--时针大小-->
+        app:hourSize="8"
+        <!--时针颜色-->
+        app:hourColor="#000"
+        <!--刻度颜色-->
+        app:lineColor="#3032c4"
+
+</RelativeLayout>
