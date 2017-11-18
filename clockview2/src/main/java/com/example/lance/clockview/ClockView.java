@@ -59,38 +59,44 @@ public class ClockView extends View {
 
     private Timer mTimer = new Timer();
 
-    private TimerTask task = new TimerTask() {
-        @Override
-        public void run() {
-            //具体的定时任务逻辑;
-            if(mSecondDegree == 360){
-                mSecondDegree = 0;
-            }
-            if(mMinDegree == 360){
-                mMinDegree = 0;
-            }
-            if(mHourDegree == 360){
-                mHourDegree = 0;
-            }
-
-            mSecondDegree = mSecondDegree + 6;
-            mMinDegree = mMinDegree + 0.1f;
-            mHourDegree = mHourDegree + 1.0f/240;
-            /**
-             * 这个方法用来执行onDraw（）方法让画布重绘;
-             * invalidate()也会执行onDraw（）方法；
-             * 两者的区别：
-             * invalidate要在主线程中调用，而postInvalidate要在子线程中调用的；
-             * 开启一个定时器，相当于开启了一个子线程，所以调用postInvalidate方法;*/
-            postInvalidate();
-        }
-    };
+    private TimerTask task;
 
     /**
      * 开启定时器
      * */
     public void start(){
-        mTimer.schedule(task,0,1000);
+        if(mTimer != null){
+            if(task != null){
+                task.cancel();
+            }
+            task  = new TimerTask() {
+                @Override
+                public void run() {
+                    //具体的定时任务逻辑;
+                    if(mSecondDegree == 360){
+                        mSecondDegree = 0;
+                    }
+                    if(mMinDegree == 360){
+                        mMinDegree = 0;
+                    }
+                    if(mHourDegree == 360){
+                        mHourDegree = 0;
+                    }
+
+                    mSecondDegree = mSecondDegree + 6;
+                    mMinDegree = mMinDegree + 0.1f;
+                    mHourDegree = mHourDegree + 1.0f/240;
+                    /**
+                     * 这个方法用来执行onDraw（）方法让画布重绘;
+                     * invalidate()也会执行onDraw（）方法；
+                     * 两者的区别：
+                     * invalidate要在主线程中调用，而postInvalidate要在子线程中调用的；
+                     * 开启一个定时器，相当于开启了一个子线程，所以调用postInvalidate方法;*/
+                    postInvalidate();
+                }
+            };
+            mTimer.schedule(task,0,1000);
+        }
     }
 
     /**
