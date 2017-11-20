@@ -16,7 +16,7 @@
 
     dependencies {
 
-        compile 'com.github.LanceShu:ClockView:1.1'
+        compile 'com.github.LanceShu:ClockView:1.2.1'
 
     }
 
